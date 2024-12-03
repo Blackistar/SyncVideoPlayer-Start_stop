@@ -14,7 +14,7 @@ class VideoScheduler:
         Toggle between play and stop states, tracking video progress.
         """
         scheduler_data = self._get_scheduler_data()
-        sync_timestamp = time.time() + 10  # 10 second delay for synchronization
+        sync_timestamp = time.time() + 5  # 5 second delay for synchronization
         
         if scheduler_data and scheduler_data.get("st") == "Play":
             # If currently playing, prepare to stop
