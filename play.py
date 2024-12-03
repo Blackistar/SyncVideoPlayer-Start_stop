@@ -12,9 +12,6 @@ class VideoScheduler:
     def toggle_playback(self, song_name, current_time):
         """
         Toggle between play and stop states, tracking video progress.
-        Args:
-            song_name: Name of the current song
-            current_time: Current timestamp in the video when button was pressed
         """
         scheduler_data = self._get_scheduler_data()
         sync_timestamp = time.time() + 10  # 10 second delay for synchronization
@@ -68,13 +65,13 @@ class VideoScheduler:
         # If we haven't reached the sync point yet, wait
         if current_time < sync_time:
             return {
-                "action": "wait",
+                "action": "wait", 
                 "wait_time": sync_time - current_time
             }
             
         return {
-            "action": scheduler_data["st"],
-            "position": float(scheduler_data["c"]),
+            "action": scheduler_data["st"], #action = "st" -> depends on the rest of the code
+            "position": float(scheduler_data["c"]), #position = "c" -> depends on the rest of code
             "song_name": scheduler_data["song_name"]
         }
     
